@@ -1,0 +1,119 @@
+$navbar-default-bg: #465f6e; /* color of navbar */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*@import url("whitespace-reset.css");*/
+
+* {
+  box-sizing: border-box;
+}
+
+body { 
+  padding-top: 70px;
+  font-size: 1.8rem;
+}
+
+#logo {
+  /*float: left;*/
+  font-size: 4.75rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  font-weight: bold;
+  background: transparent url(<%= asset_path 'background-logo.jpg'%>) 82% 92% no-repeat;
+}
+.custom-nav {
+  margin-left:50px;
+}
+#link-desc > a {
+  font-size: 3.0rem;
+  font-weight: bold;
+  color: white;
+}
+
+#link-desc a:hover {
+  cursor: pointer;
+  background-color: #839cab;
+}
+
+.center-heading {
+  text-align: center;
+  font-size: 3.7rem;
+  color: #00334d;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+  clear: left;
+}
+
+mark {
+  background-color: #e8e893;
+  color: #800000;
+}
+
+#search_view {
+  pointer-events: none;
+}
+
+.btn-lg {
+  margin-top: 3px;
+}
+
+.btn-lg > a {
+  color: white;
+  text-decoration: none;
+}
+.panel-danger{
+  background-color: #ebccd1;
+  color: #a94442;
+}
+/*------------------*/
+@media (max-width: 1950px) {
+
+  #link-desc > a {
+    font-size: 2rem;
+  }
+}
+/*Triggers Bootstrap collapses (vertically stacks) the navbar at 1540px rather than 768 px*/
+
+@media (max-width: 1590px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+}
+

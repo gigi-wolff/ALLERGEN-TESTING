@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header navbar-left">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <%= link_to "Allergen-Check", root_path, class: "navbar-brand", id:"logo" %>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav custom-nav">
+        <div class="btn-group " role="group" aria-label="...">
+          <button type="button" class="btn allergen-action-button btn-lg"><%= link_to "List All Allergens", root_path %></button>
+          <button type="button" class="btn allergen-action-button btn-lg"><%= link_to "Add an Allergen", new_allergen_path %></button>
+        </div>
+        <div class="spacer"></div>
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn product-action-button btn-lg"><%= link_to "List All Products", products_path %></button>
+          <button type="button" class="btn product-action-button btn-lg"><%= link_to "Add a Product", new_product_path %></button>
+        </div>
+
+<!-- 
+        <li id="link-desc"><%= link_to "List All Allergens", root_path %></li>
+        <li id="link-desc"><%= link_to "Add an Allergen", new_allergen_path %></li>
+        <li id="link-desc"><%= link_to "List All Products", products_path %></li>
+        <li id="link-desc"><%= link_to "Add a Product", new_product_path %></li>
+ -->
+      </ul>
+      <!--  Logout -->
+      <% if user_signed_in? %>
+        <div class="navbar-right btn btn-danger btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span><%= link_to(' Log out', destroy_user_session_path, method: :delete) %>
+        </div>
+      <% elsif 1 < 0 %> <!-- disabled -->
+        <div class="navbar-right btn btn-success btn-lg">
+          <span class="glyphicon glyphicon-log-in"></span><%= link_to(' Log in', new_user_session_path) %> 
+        </div>
+      <% end %>
+      <!--  Search --> 
+      <%= form_tag(search_search_path, :method => "get",class: 'navbar-right navbar-form') do %>  
+        <div class="input-group">  
+          <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+          <div class="input-group-btn">  
+            <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+          </div>  
+        </div> 
+      <% end %>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

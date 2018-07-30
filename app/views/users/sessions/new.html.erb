@@ -1,0 +1,33 @@
+<fieldset class = 'custom-login-signup'>
+  <h1><strong>Log in</strong></h1>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+
+    <button type="submit" class="actions log-in-out navbar-left btn btn-success btn-lg">Log in <span class="glyphicon glyphicon-log-in"></span></button>
+
+    <!-- 
+    <div class="actions navbar-left btn btn-default btn-lg">
+      <%= f.submit "Log in" %>
+    </div>
+    -->
+  <% end %>
+</fieldset>
+
+
+<%= render "users/shared/links" %>
